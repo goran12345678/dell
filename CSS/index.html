@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My CSS</title>
+    <!--
+    <link rel="stylesheet" href="./style.css" type="text/css" />        
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">Login</h1>
+              <p class="col-md-8 fs-4">Log into your account.</p>
+
+            </div>
+          </div>
+        <form id="form" action="" method="">
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" type="text" id="name" name="email" />
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" type="password" id="password" name="password" />
+            <input class="btn btn-primary mb-3" id="login" type="submit" value="Login" />
+            <input class="btn btn-success mb-3" id="reset" type="reset" value="Reset" />
+        </form>
+        <a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="glink">Login with Google</a>
+        <a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="xlink">Login with X</a>
+    </div>
+
+    <!--
+    <div style="padding: 3px; border: 1px dashed black; width: 155px;">
+        <img src="data:image/webp;base64,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" width="150px" height="150px" />
+        <p style="text-decoration:underline; border-top: 1px solid lightgray; text-align: center;">$49.99</p>
+        <p style="padding: 3px; font-style: italic;">
+            This umbrella stops all water. Can be used for 
+            <span style="display: inline-block;">sun</span> or 
+            <span style="display: inline-block;">rain</span> protection
+        </p>
+        <p style="text-align: center; color: white; background-color:crimson; padding: 6px; border: 1px solid grey; border-radius: 15px; font-size: smaller; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Buy now and get a discount!</p>
+    </div>
+-->
+</body>
+
+</html>

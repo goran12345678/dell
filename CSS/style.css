@@ -1,0 +1,53 @@
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+#logintitle {
+    text-align: center;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+.frmlabel {
+    display: block;
+}
+
+form #login {
+    display: inline-block;
+}
+
+#password {
+    display: block;
+}
+
+#reset {
+    display: inline-block;
+}
+
+#login,
+#reset {
+    background-image: linear-gradient(to bottom right, rgb(16, 16, 69), rgb(44, 46, 165));
+    /*background-image: radial-gradient(black 5%, grey 20%);*/
+    color: white;
+    /*background-color: lightblue;*/
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 3px;
+    height: 25px;
+    width: 50px;
+}
+
+@media screen AND (min-width: 200px) {
+    body {
+        background-color: red;
+    }
+}
+
+@media screen AND (max-width: 600px) {
+    body {
+        background-color: green;
+    }
+}
