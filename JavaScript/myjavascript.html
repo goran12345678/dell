@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>My JavaScript</title>
+</head>
+
+<body>
+    <script>
+        //line comments
+        /*
+        block comment
+        */
+
+        // = equality operator
+        // typeof operator - it display the data type of a variable
+
+        let myvariable = 2.5;
+
+        let myvariable2 = myvariable;
+
+        myvariable = 3;
+
+        myvariable = "hi all";
+
+        myvariable = null;
+
+        console.log("variable1 type: ", typeof myvariable, "variable data type: ", myvariable,
+            "variable 2: ", myvariable2);
+
+        let car = {
+            type: "car",
+            wheels: 4,
+            color: "red",
+            doors: 2,
+            performance: {
+                topspeed: 200,
+                acceleration: 9.8
+            }
+        }
+        // console.log("car properties: ", car["doors"])
+        let bus = {
+            type: "bus",
+            seats: 50,
+            status: "in-service"
+        }
+
+        car = bus; //this assigne a memory location to car
+
+        bus.seats = 150;
+
+        console.log("object: ", car);
+
+        //Arithemtic operators
+        // +, -, / , *
+        console.log("arithmetic operators: ", 77 / 2);
+
+        //comparison operators
+        // <, >, <=, >=, ==, ===
+
+        console.log("== operator", 5 === "5");
+
+        let v1 = null;
+        console.log("is null", typeof v1 === typeof null)
+
+        //ternary operator
+
+        let ternary = (3 > 6) ? "yes it is true" : "no it is not true";
+        console.log("ternary: ", ternary);
+
+        //logic operators
+        // &&, ||
+
+        console.log("OR operator: ", (3 > 6) || (3 > 6))
+
+
+        //Bitwise operators
+        // &, |, <<, >>, ~
+
+        //0000 2^0 + 2^1 + 2^3 + 2^4 
+
+        //0001 = 1
+        //0010 = 2
+
+        //0001
+        //0010
+        //0011 = 2^0 + 2^1 = 2 + 1 = 3
+
+        console.log("bitwise OR: ", 1 | 2);
+
+
+        //control flows
+        //conditional control flow
+        // if then else
+        let output;
+        if (3 > 2) {
+            output = "first condition met";
+        } else if (4 > 8) {
+            output = " second condition met";
+        }
+        else {
+            output = "condition not met";
+        }
+
+        if (3 > 2) { output = "3>2 condition met" }
+        if (5 > 2) { output = "5>2 condition met" }
+        console.log("output: ", output);
+
+        //swtich
+        const expr = "Apple"
+        switch (expr) {
+            case "Orange":
+                output = "Orange was passed";
+                break;
+            case "Mango":
+                output = "Mango was passed";
+                break;
+            case "Apple":
+                output = "Apple was passed";
+                break;
+        }
+
+        console.log("switch: ", output);
+
+        //loops
+        // may never enter the loop
+        let n = 0;
+        while (n < 3) {
+            console.log("while loop n: ", n);
+            n++;
+        }
+
+        console.log("increment operator: ", n++)
+        console.log("na:", n);
+
+        n = 0;
+        /*
+        */
+        do {
+            ++n;
+            console.log("do loop n: ", n);
+        } while (n < 5);
+
+        for (let i = 0; i < 5; i++) {
+            console.log("for i: ", i);
+        }
+
+        const person = { eyes: "brown", height: "medium", hair: "grey" }
+        for (const prop in person) {
+            console.log(`${prop}: ${person[prop]}`);
+        }
+
+        const array1 = ["a", "b", "c"];
+        for (const element of array1) {
+            console.log("for of array: ", element);
+        }
+
+        //function
+
+        //expression function
+        let funct1;
+        function square(name, callback) {
+            callback(name);
+            return "hi from square: " + name;
+        }
+
+        console.log("function square: ", square("Tom", writeName));
+
+        function writeName(name) {
+            console.log("Hi from writeName: " + name);
+        }
+
+        //Js has built-in functions
+        eval()
+        decodeURI()
+
+        //class declaration
+        class Rectangle {
+            constructor() { }
+        }
+
+        let rectangle = new Rectangle();
+
+
+        class Product {
+            constructor(description, name, price) {
+                this.description = description;
+                this.name = name;
+                this.price = price;
+            }
+            getPrice() {
+                return this.price
+            }
+            getName() {
+                return this.name;
+            }
+            getDescription() {
+                return this.description
+            }
+        }
+        class Order {
+            constructor(product, discountCode) {
+                this.product = product;
+                this.discountCode = discountCode;
+            }
+            getTotal() {
+                let total = this.product.getPrice() + this.product.getPrice() * 0.9;
+                switch (this.discountCode) {
+                    case "Student":
+                        total = total - total * .25;
+                        break;
+                    case "Retired":
+                        total = total - total * .10;
+                        break;
+                    case "Military":
+                        total = total - total * .10;
+                        break;
+                }
+                return total;
+            }
+            getPurchaseSummary() {
+                return "Product " + this.product.getDescription() +
+                    " will be purchased for a total of " + this.getTotal();
+            }
+        }
+
+        const shoes = new Product("Sneaker for running,walking and coding all day", "Nike Pumps", 200);
+        const bike = new Product("Electric rocket that will get you there quick ", "Bicycle", 300);
+        const sweater = new Product("Will keep you warm in the desert and arctic", "Sweater", 700);
+
+
+
+        function selectProduct(product, discount) {
+            let order = new Order(product, discount);
+            return order;
+        }
+
+        let order = selectProduct(shoes, "Student");
+
+        console.log(order.getPurchaseSummary());
+
+
+        let prod = {
+            description: "Shoes for running and walking",
+            name: "Nike Pump",
+            getCopy() {
+                return {
+                    description: this.description,
+                    name: this.name,
+                    price: this.price
+                }
+            },
+            price: 200
+        }
+
+        let proAudit = prod.getCopy();
+
+//String wrapper
+
+let text = "This is a string ";
+console.log("String wrapper: " + text.trim());
+
+
+
+
+console.log("Home: ", home);
+
+var home = "Mexico";
+
+helloAll();
+
+function helloAll(){
+    console.log("Hello all");
+}
+
+//Array
+
+let myarray = new Array();
+myarray.push("first item");
+myarray.push("second item");
+//let firstItem = myarray.splice(0, 2);
+//console.log("last item: ", firstItem);
+
+myarray.splice(1,0,"third item");
+console.log("Array: " + myarray);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
